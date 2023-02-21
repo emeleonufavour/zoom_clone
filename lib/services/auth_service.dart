@@ -7,6 +7,7 @@ import 'package:zoom_clone/utils/utilities.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  Stream<User?> get authChange => _auth.authStateChanges();
 
   Future<bool> signInWithGoogle(BuildContext context) async {
     bool success = false;

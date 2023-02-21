@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:zoom_clone/services/auth_service.dart';
 import 'package:zoom_clone/utils/utilities.dart';
 
+import '../widgets/authBox.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -41,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
             alignment: Alignment.bottomCenter,
             child: Container(
               padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
-              height: MediaQuery.of(context).size.height * (1 / 3),
+              height: MediaQuery.of(context).size.height * (1 / 2.6),
               width: double.infinity,
               decoration: BoxDecoration(
                   color: Colors.grey[900],
