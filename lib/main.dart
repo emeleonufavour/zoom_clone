@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:zoom_clone/screens/home.dart';
+import 'package:provider/provider.dart';
+import 'package:zoom_clone/screens/mainhome.dart';
 import 'package:zoom_clone/screens/login.dart';
 import 'package:zoom_clone/services/auth_service.dart';
+import 'package:zoom_clone/services/navService.dart';
 import 'package:zoom_clone/utils/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -11,7 +13,8 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => NavService(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
