@@ -8,6 +8,7 @@ class HomeSideIcon extends StatelessWidget {
   final String title;
   final bool selected;
   final VoidCallback action;
+
   HomeSideIcon(
       {required this.homeIcon,
       required this.title,

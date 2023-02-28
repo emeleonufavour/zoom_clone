@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:zoom_clone/widgets/joinbox.dart';
+import 'package:zoom_clone/widgets/vcdialogbox.dart';
 
 import '../widgets/homeIcons.dart';
 
@@ -19,16 +21,34 @@ class HomeBody extends StatelessWidget {
             //top icons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                HomeIcon(
-                  icon: Icons.video_call_rounded,
-                  title: "New Meeting",
-                  main: true,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return VideoCallBox();
+                        });
+                  },
+                  child: const HomeIcon(
+                    icon: Icons.video_call_rounded,
+                    title: "New Meeting",
+                    main: true,
+                  ),
                 ),
-                HomeIcon(
-                  icon: Icons.add_box_rounded,
-                  title: "Join",
-                  main: false,
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return JoinMeetingBox();
+                        });
+                  },
+                  child: const HomeIcon(
+                    icon: Icons.add_box_rounded,
+                    title: "Join",
+                    main: false,
+                  ),
                 ),
               ],
             ),

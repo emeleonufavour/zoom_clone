@@ -15,7 +15,7 @@ class ChatScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(),
-              Text(
+              const Text(
                 'Team Chat',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
@@ -49,7 +49,7 @@ class ChatScreen extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          Text(
+          const Text(
             'Find people and start chatting!',
             style: TextStyle(fontSize: 20),
           ),

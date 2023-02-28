@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zoom_clone/screens/chat.dart';
+import 'package:zoom_clone/screens/contacts.dart';
+import 'package:zoom_clone/screens/meeting.dart';
 import 'package:zoom_clone/services/navService.dart';
 import 'package:zoom_clone/widgets/homeIcons.dart';
 import 'package:zoom_clone/widgets/homeSideIcon.dart';
@@ -32,7 +34,12 @@ class _HomeScreenState extends State<HomeScreen> {
               HomeSideIcon(
                 homeIcon: Icons.home_filled,
                 title: "Home",
-                selected: true,
+                selected: Provider.of<NavService>(
+                          context,
+                        ).currentPage ==
+                        'home'
+                    ? true
+                    : false,
                 action: () {
                   Provider.of<NavService>(context, listen: false).currentPage =
                       'home';
@@ -42,7 +49,12 @@ class _HomeScreenState extends State<HomeScreen> {
               HomeSideIcon(
                 homeIcon: Icons.chat_bubble_outline_rounded,
                 title: "Team Chat",
-                selected: false,
+                selected: Provider.of<NavService>(
+                          context,
+                        ).currentPage ==
+                        'chat'
+                    ? true
+                    : false,
                 action: () {
                   Provider.of<NavService>(context, listen: false).currentPage =
                       'chat';
@@ -52,7 +64,12 @@ class _HomeScreenState extends State<HomeScreen> {
               HomeSideIcon(
                 homeIcon: Icons.video_call_outlined,
                 title: "Meetings",
-                selected: false,
+                selected: Provider.of<NavService>(
+                          context,
+                        ).currentPage ==
+                        'meeting'
+                    ? true
+                    : false,
                 action: () {
                   Provider.of<NavService>(context, listen: false).currentPage =
                       'meeting';
@@ -62,7 +79,12 @@ class _HomeScreenState extends State<HomeScreen> {
               HomeSideIcon(
                 homeIcon: Icons.contact_page_outlined,
                 title: "Contacts",
-                selected: false,
+                selected: Provider.of<NavService>(
+                          context,
+                        ).currentPage ==
+                        'contact'
+                    ? true
+                    : false,
                 action: () {
                   Provider.of<NavService>(context, listen: false).currentPage =
                       'contact';
@@ -72,7 +94,12 @@ class _HomeScreenState extends State<HomeScreen> {
               HomeSideIcon(
                 homeIcon: Icons.more_horiz_rounded,
                 title: "More",
-                selected: false,
+                selected: Provider.of<NavService>(
+                          context,
+                        ).currentPage ==
+                        'more'
+                    ? true
+                    : false,
                 action: () {
                   Provider.of<NavService>(context, listen: false).currentPage =
                       'more';
@@ -84,10 +111,16 @@ class _HomeScreenState extends State<HomeScreen> {
         //main big icons
         Consumer<NavService>(builder: (context, value, Widget) {
           if (value.currentPage == 'chat') {
-            return ChatScreen();
+            return const ChatScreen();
           }
           if (value.currentPage == 'home') {
-            return HomeBody();
+            return const HomeBody();
+          }
+          if (value.currentPage == 'meeting') {
+            return const MeetingPage();
+          }
+          if (value.currentPage == 'contact') {
+            return const ContactsPage();
           }
           return HomeBody();
         })
