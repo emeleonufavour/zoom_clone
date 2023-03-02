@@ -5,6 +5,7 @@ import 'package:zoom_clone/services/auth_service.dart';
 import 'package:zoom_clone/utils/utilities.dart';
 
 import '../widgets/authBox.dart';
+import '../widgets/joinbox.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -77,14 +78,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   //join a meeting
                   AuthBox(
                     placeHolder: 'Join a Meeting',
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return JoinMeetingBox();
+                          });
+                    },
                     coloured: true,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   //sign up
-                  AuthBox(placeHolder: 'Sign Up', onPressed: () {}),
+                  AuthBox(
+                      placeHolder: 'Sign Up',
+                      onPressed: () async {
+                        bool success =
+                            await _authService.signInWithGoogle(context);
+
+                        if (success) {
+                          Navigator.of(context).pushNamed('/home');
+                        }
+                      }),
                   const SizedBox(
                     height: 10,
                   ),
@@ -94,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () async {
                       bool success =
                           await _authService.signInWithGoogle(context);
-                      print("it is was $success");
+
                       if (success) {
                         Navigator.of(context).pushNamed('/home');
                       }

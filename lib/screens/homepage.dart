@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:zoom_clone/widgets/joinbox.dart';
-import 'package:zoom_clone/widgets/vcdialogbox.dart';
+import 'package:zoom_clone/widgets/startvcbox.dart';
 
 import '../widgets/homeIcons.dart';
 

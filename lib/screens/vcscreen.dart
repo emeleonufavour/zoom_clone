@@ -84,7 +84,7 @@ class _MyAppState extends State<VideoCallScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agora Video Call'),
+        title: const Text('Zoom Clone'),
       ),
       body: Stack(
         children: [
@@ -104,7 +104,17 @@ class _MyAppState extends State<VideoCallScreen> {
                           canvas: const VideoCanvas(uid: 0),
                         ),
                       )
-                    : const CircularProgressIndicator(),
+                    : Container(
+                        width: 100,
+                        height: 150,
+                        color: Colors.grey,
+                        child: Center(
+                          child: Text(
+                            "Connecting..",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
               ),
             ),
           ),
@@ -125,7 +135,8 @@ class _MyAppState extends State<VideoCallScreen> {
       );
     } else {
       return const Text(
-        'Please wait for remote user to join',
+        'Please wait for someone else to join',
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         textAlign: TextAlign.center,
       );
     }

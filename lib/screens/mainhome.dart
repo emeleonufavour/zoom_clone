@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:zoom_clone/screens/chat.dart';
 import 'package:zoom_clone/screens/contacts.dart';
 import 'package:zoom_clone/screens/meeting.dart';
+import 'package:zoom_clone/screens/more.dart';
 import 'package:zoom_clone/services/navService.dart';
 import 'package:zoom_clone/widgets/homeIcons.dart';
 import 'package:zoom_clone/widgets/homeSideIcon.dart';
@@ -121,6 +122,9 @@ class _HomeScreenState extends State<HomeScreen> {
           }
           if (value.currentPage == 'contact') {
             return const ContactsPage();
+          }
+          if (value.currentPage == 'more') {
+            return const SettingsPage();
           }
           return HomeBody();
         })

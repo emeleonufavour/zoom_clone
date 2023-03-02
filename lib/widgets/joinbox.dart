@@ -24,7 +24,7 @@ class _JoinMeetingBoxState extends State<JoinMeetingBox> {
     super.dispose();
   }
 
-  Future<void> onJoin() async {
+  Future<void> _onJoin() async {
     setState(() {
       _textEditingController.text.isEmpty
           ? _validateError = true
@@ -121,7 +121,7 @@ class _JoinMeetingBoxState extends State<JoinMeetingBox> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
-                    onTap: onJoin,
+                    onTap: _onJoin,
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.blueAccent,

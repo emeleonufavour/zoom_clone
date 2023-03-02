@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zoom_clone/screens/mainhome.dart';
 import 'package:zoom_clone/screens/login.dart';
-import 'package:zoom_clone/widgets/vcdialogbox.dart';
+import 'package:zoom_clone/widgets/startvcbox.dart';
 import 'package:zoom_clone/services/auth_service.dart';
 import 'package:zoom_clone/services/navService.dart';
 import 'package:zoom_clone/utils/colors.dart';
